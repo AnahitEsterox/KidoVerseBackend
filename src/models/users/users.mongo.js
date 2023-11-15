@@ -22,6 +22,10 @@ const usersSchema = new mongoose.Schema({
   resetPasswordExpires: {
     type: String,
   },
+  photoUrl: {
+    type: String,
+    default: null,
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
