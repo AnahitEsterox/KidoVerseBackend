@@ -11,9 +11,19 @@ const userControllerMessages = {
   userReceived: 'User received',
 };
 
+const kidControllerMessages = {
+  created: 'Kid has successfully been created.',
+  allFieldsRequired: 'Please provide all the informationa about the kid.',
+  kidsReceived: 'Kids list received',
+  kidReceived: 'Kid received',
+  kidDeleted: 'Kid has successfully been deleted.',
+  kidUpdated: 'Kid has successfully been updated.',
+};
+
 const smthWentWrong = 'Something went wrong.';
 
 module.exports = {
   userControllerMessages,
+  kidControllerMessages,
   smthWentWrong,
 };
