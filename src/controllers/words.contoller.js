@@ -1,42 +1,44 @@
 const {
-  isKidValid,
-  createKid,
-  getKids,
-  getKid,
-  deleteKid,
-  updateKid,
-} = require('../models/kids/kids.model');
+  isWordValid,
+  createWord,
+  getKidWords,
+  getWords,
+  deleteWord,
+  updateWord,
+} = require('../models/words/words.model');
 
 const httpStatuses = require('../constants/httpStatuses');
-const { smthWentWrong, kidControllerMessages } = require('../constants/controllerMessages');
+const { smthWentWrong, wordsControllerMessages } = require('../constants/controllerMessages');
 
-async function httpCreateKid(req, res) {
+async function httpCreateWord(req, res) {
   try {
-    const kid = req.body;
+    const word = req.body;
     const userId = req.user.id;
+    const kidId = req.params.kidId;
 
-    const kidData = {
-      ...kid,
+    const newWord = {
+      ...word,
       userId,
+      kidId,
     };
 
-    const isKidCreationAllowed = isKidValid(kidData);
+    const isWordCreationAllowed = isWordValid(newWord);
 
-    if (!isKidCreationAllowed) {
+    if (!isWordCreationAllowed) {
       return res.status(httpStatuses.badRequest).json({
         success: false,
-        message: kidControllerMessages.allFieldsRequired,
+        message: wordsControllerMessages.wordCreationNotAllowed,
         statusCode: httpStatuses.badRequest,
       });
     }
 
-    const newKid = await createKid(kidData);
+    const createdWord = await createWord(newWord);
 
     return res.status(httpStatuses.created).json({
       success: true,
-      data: newKid,
-      message: kidControllerMessages.created,
+      message: wordsControllerMessages.wordCreated,
       statusCode: httpStatuses.created,
+      data: createdWord,
     });
   } catch (error) {
     console.log(error);
@@ -48,41 +50,41 @@ async function httpCreateKid(req, res) {
   }
 }
 
-async function httpGetKids(req, res) {
+async function httpGetKidWords(req, res) {
+  try {
+    const kidId = req.params.kidId;
+
+    // TODO: check if kidId is valid
+
+    const words = await getKidWords(kidId);
+
+    return res.status(httpStatuses.ok).json({
+      success: true,
+      message: wordsControllerMessages.wordsReceived,
+      statusCode: httpStatuses.ok,
+      data: words,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(httpStatuses.serverError).json({
+      success: false,
+      message: error.message || smthWentWrong,
+      statusCode: httpStatuses.serverError,
+    });
+  }
+}
+
+async function httpGetWords(req, res) {
   try {
     const userId = req.user.id;
 
-    const kids = await getKids(userId);
+    const words = await getWords(userId);
 
     return res.status(httpStatuses.ok).json({
       success: true,
-      data: kids,
-      message: kidControllerMessages.kidsReceived,
+      message: wordsControllerMessages.wordsReceived,
       statusCode: httpStatuses.ok,
-    })
-  } catch (error) {
-    console.log(error);
-    return res.status(httpStatuses.serverError).json({
-      success: false,
-      message: error.message || smthWentWrong,
-      statusCode: httpStatuses.serverError,
-    });
-  }
-}
-
-async function httpGetKid(req, res) {
-  try {
-    const id = req.params.id;
-
-    // TODO: if kid exists, get
-
-    const kid = await getKid(id);
-
-    return res.status(httpStatuses.ok).json({
-      success: true,
-      data: kid,
-      message: kidControllerMessages.kidReceived,
-      statusCode: httpStatuses.ok,
+      data: words,
     });
   } catch (error) {
     console.log(error);
@@ -94,22 +96,21 @@ async function httpGetKid(req, res) {
   }
 }
 
-async function httpDeleteKid(req, res) {
+async function httpDeleteWord(req, res) {
   try {
     const id = req.params.id;
 
-    // TODO: if kid exists, delete
+    // TODO: if word exists, delete
 
-    await deleteKid(id);
+    await deleteWord(id);
 
     return res.status(httpStatuses.ok).json({
       success: true,
       data: {
-        kidId: id,
+        wordId: id,
       },
-      message: kidControllerMessages.kidDeleted,
-      statusCode: httpStatuses.ok,
-    })
+      message: wordsControllerMessages.wordDeleted,
+    });
   } catch (error) {
     console.log(error);
     return res.status(httpStatuses.serverError).json({
@@ -120,19 +121,19 @@ async function httpDeleteKid(req, res) {
   }
 }
 
-async function httpUpdateKid(req, res) {
+async function httpUpdateWord(req, res) {
   try {
     const id = req.params.id;
-    const kid = req.body;
+    const word = req.body;
 
-    // TODO: if kid exists, update
+    // TODO: if word exists, update
 
-    const updatedKid = await updateKid(id, kid);
+    const updatedWord = await updateWord(id, word);
 
     return res.status(httpStatuses.ok).json({
       success: true,
-      data: updatedKid,
-      message: kidControllerMessages.kidUpdated,
+      data: updatedWord,
+      message: wordsControllerMessages.wordUpdated,
       statusCode: httpStatuses.ok,
     });
   } catch (error) {
@@ -145,13 +146,10 @@ async function httpUpdateKid(req, res) {
   }
 }
 
-
-// TODO maybe separate method for updating avatar
-
 module.exports = {
-  httpCreateKid,
-  httpGetKids,
-  httpGetKid,
-  httpDeleteKid,
-  httpUpdateKid,
+  httpCreateWord,
+  httpGetKidWords,
+  httpGetWords,
+  httpDeleteWord,
+  httpUpdateWord,
 };
