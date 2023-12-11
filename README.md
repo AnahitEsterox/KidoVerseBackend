@@ -6,7 +6,7 @@ It's an amazing app allowing to fill in your kids first words with their transla
 ## 🏰 Architecture
 Standard adjusted `Node.js` architecture based on different best practices with very good expressed.**Data Access Layer**. Also includes **Dockerized** version
 
-### Stack
+### Tech Stack
 
 <div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Nodejs" alt="Nodejs" width="40" height="40"/>&nbsp;
