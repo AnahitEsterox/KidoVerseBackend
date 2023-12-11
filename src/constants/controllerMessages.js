@@ -20,10 +20,19 @@ const kidControllerMessages = {
   kidUpdated: 'Kid has successfully been updated.',
 };
 
+const wordsControllerMessages = {
+  wordCreationNotAllowed: 'You are not allowed to create a word.',
+  wordCreated: 'Word has successfully been created.',
+  wordsReceived: 'Words list received',
+  wordDeleted: 'Word has successfully been deleted.',
+  wordUpdated: 'Word has successfully been updated.',
+};
+
 const smthWentWrong = 'Something went wrong.';
 
 module.exports = {
   userControllerMessages,
   kidControllerMessages,
+  wordsControllerMessages,
   smthWentWrong,
 };
