@@ -15,11 +15,6 @@ Standard adjusted `Node.js` architecture based on different best practices with 
   <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongoose/mongoose.png" title="Mongoose" alt="Mongoose" width="40" height="40"/>&nbsp;
 </div>
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-
 ### Versions
 - node `v20.9.0`
 - npm `v10.1.0`
