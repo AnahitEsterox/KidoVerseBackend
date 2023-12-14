@@ -19,6 +19,9 @@ Standard adjusted `Node.js` architecture based on different best practices with 
 - node `v20.9.0`
 - npm `v10.1.0`
 
+## 📦 Installation
+Note: make sure you have `.env` created with appropriate variables
+
 ### Installation (regular)
 _Make sure you are using correct `node` and `npm` versions_
 - Clone the repo
