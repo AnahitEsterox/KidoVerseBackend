@@ -1,7 +1,7 @@
 # ✨ KidoVerseBackend
 
 ## 📖 About the project
-It's an amazing app allowing to fill in your kids first words with their translations also acheivments that they achieved. It's an amazind diary to keep.
+It's an amazing app allowing to fill in your kids first words with their translations also acheivments that they achieved. It's an amazing diary to keep if you are a parent 😊.
 
 ## 🏰 Architecture
 Standard adjusted `Node.js` architecture based on different best practices with very good expressed **Data Access Layer**. Also includes **Dockerized** version
