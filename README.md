@@ -4,7 +4,7 @@
 It's an amazing app allowing to fill in your kids first words with their translations also acheivments that they achieved. It's an amazind diary to keep.
 
 ## 🏰 Architecture
-Standard adjusted `Node.js` architecture based on different best practices with very good expressed.**Data Access Layer**. Also includes **Dockerized** version
+Standard adjusted `Node.js` architecture based on different best practices with very good expressed **Data Access Layer**. Also includes **Dockerized** version
 
 ### Tech Stack
 
