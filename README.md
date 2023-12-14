@@ -20,7 +20,7 @@ Standard adjusted `Node.js` architecture based on different best practices with 
 - npm `v10.1.0`
 
 ## 📦 Installation
-_Note: make sure you have `.env` created with appropriate variables._
+_Note: make sure you have `.env` created from `.env.example` with appropriate variables._
 
 ### Installation (regular)
 _Make sure you are using correct `node` and `npm` versions_
