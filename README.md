@@ -26,7 +26,7 @@ _Note: make sure you have `.env` created from `.env.example` with appropriate va
 _Make sure you are using correct `node` and `npm` versions_
 - Clone the repo
 ```bash
-git clone https://github.com/AlbertArakelyan/react-express-exoplanet-project.git
+git clone https://github.com/AnahitEsterox/KidoVerseBackend.git
 ```
 - First run
 ```bash
